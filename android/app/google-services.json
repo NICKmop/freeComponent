@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "712705257370",
+    "project_id": "freecomponent",
+    "storage_bucket": "freecomponent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712705257370:android:d9d78a9d54b3024536d423",
+        "android_client_info": {
+          "package_name": "com.flu.comp.freecomponent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712705257370-bso27pstn7074mk8qnq2614gu4u76gdl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flu.comp.freecomponent",
+            "certificate_hash": "934aaffcf2fa33a0926d33ad1c83e7eeb64813b1"
+          }
+        },
+        {
+          "client_id": "712705257370-vimb01ep3k39489v2lf3374pbg9il0jf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flu.comp.freecomponent",
+            "certificate_hash": "0422f54aab35e28e3e9f38c6d40dad32ee1490ff"
+          }
+        },
+        {
+          "client_id": "712705257370-3ih9m6o3voqe5aje49bd2arm5pamr5ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7I5otFXUS75GcnxPlLNyqnmH6K9lGeWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712705257370-3ih9m6o3voqe5aje49bd2arm5pamr5ra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

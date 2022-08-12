@@ -5,6 +5,7 @@ import 'package:latlong2/latlong.dart';
 
 const CIRCLE_RADIUS = 50.0;
 const KAKAO_NATIVE_APP_KEY = "fc7ff62469909fc60350045b7bc1178e"; //real
+
 const NO_CATEGORY_TEXT = "없음";
 final MAP_INITIAL_CENTER_LOCATION = LatLng(37.5547125, 126.9707878);
 const ZOOM_FOR_SHOW_MARKER_NAME = 13;

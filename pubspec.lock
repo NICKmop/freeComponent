@@ -387,6 +387,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.0"
+  kakao_flutter_sdk:
+    dependency: "direct main"
+    description:
+      name: kakao_flutter_sdk
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
+  kakao_flutter_sdk_auth:
+    dependency: transitive
+    description:
+      name: kakao_flutter_sdk_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
   kakao_flutter_sdk_common:
     dependency: transitive
     description:
@@ -394,10 +408,31 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  kakao_flutter_sdk_navi:
+    dependency: transitive
+    description:
+      name: kakao_flutter_sdk_navi
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
   kakao_flutter_sdk_share:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: kakao_flutter_sdk_share
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
+  kakao_flutter_sdk_story:
+    dependency: transitive
+    description:
+      name: kakao_flutter_sdk_story
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
+  kakao_flutter_sdk_talk:
+    dependency: transitive
+    description:
+      name: kakao_flutter_sdk_talk
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
@@ -405,6 +440,13 @@ packages:
     dependency: transitive
     description:
       name: kakao_flutter_sdk_template
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
+  kakao_flutter_sdk_user:
+    dependency: transitive
+    description:
+      name: kakao_flutter_sdk_user
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"

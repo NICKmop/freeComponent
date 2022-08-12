@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freecomponent/screens/mainScreen.dart';
 import 'package:get/get.dart';
 import 'package:freecomponent/screens/login.screen.dart';
 // import 'package:naegot/screens/main.screen.dart';
@@ -37,7 +38,7 @@ class IntroScreen extends StatelessWidget {
                     onPressed: () {
                       FirebaseAuth.instance.currentUser == null
                           ? Get.offAll(() => const LoginScreen())
-                          : Get.offAll(() => const crawlingScreen());
+                          : Get.offAll(() => const mainScreen());
                     },
                   ),
                 )

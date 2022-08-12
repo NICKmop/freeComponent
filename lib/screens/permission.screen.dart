@@ -22,14 +22,6 @@ Future<bool> requestPermissions() async {
       (await Permission.storage.status != PermissionStatus.granted)) {
     return Future.value(false);
   }
-  // Get.defaultDialog(
-  //     title: "권한 확인",
-  //     content: Text("위치 권한을 허용해주세요."),
-  //     confirm: AppButton(text: "설정 이동", onPressed: () {}),
-  //     cancel: AppButton(text: "취소", onPressed: () {}),
-  //     onConfirm: () {
-  //       openAppSettings();
-  //     });
   return Future.value(true);
 }
 

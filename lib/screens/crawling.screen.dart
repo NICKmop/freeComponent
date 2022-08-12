@@ -78,7 +78,7 @@ class _crawlingScreenState extends State<crawlingScreen> {
           prefixIcon: const Icon(Icons.search),
           placeholder: "관련 검색",
           placeholderStyle:
-          const TextStyle(fontSize: 14, color: AppColors.hintText),
+          const TextStyle(fontSize: 14,color: AppColors.hintText),
           onChanged: (value) {
             print(value);
           },
@@ -136,7 +136,9 @@ class _crawlingScreenState extends State<crawlingScreen> {
               ),
               title: Text('전라도'),
               onTap: () {
-                print('Home is clicked');
+                if (kDebugMode) {
+                  print('Home is clicked');
+                }
               },
             ),
           ],
@@ -163,15 +165,15 @@ class _crawlingScreenState extends State<crawlingScreen> {
                               decoration: BoxDecoration(border: Border.all(color: Colors.black)),
                               height: 250,
                               // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-                              padding: EdgeInsets.all(12),
+                              padding: const EdgeInsets.all(12),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "${snapshot.data![index].imgStringTitle}",
+                                    snapshot.data![index].imgStringTitle,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 22),
+                                    style: const TextStyle(fontSize: 22),
                                   ),
                                   Flexible(
                                     flex: 2,
@@ -179,7 +181,7 @@ class _crawlingScreenState extends State<crawlingScreen> {
                                       child:Row(
                                         children: [
                                           Image.network(snapshot.data![index].imgLink),
-                                          SizedBox(width: 35, height: 50),
+                                          const SizedBox(width: 35, height: 50),
                                           Column(
                                             children: [
                                               IconButton(
@@ -196,7 +198,7 @@ class _crawlingScreenState extends State<crawlingScreen> {
                                                   Uri url = Uri.parse(snapshot.data![index].imgLinkA);
                                                   launchUrl(url);
                                                 },
-                                                icon: Text("${snapshot.data![index].imgStatus.last}", style: TextStyle(fontWeight: FontWeight.bold),),
+                                                icon: Text(snapshot.data![index].imgStatus.last, style: TextStyle(fontWeight: FontWeight.bold),),
                                               ),
                                             ],
                                           )

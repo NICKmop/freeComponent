@@ -19,7 +19,6 @@ dependencies:
   firebase_storage: ^10.2.18
   cloud_firestore: ^3.1.18
 
-  kakao_flutter_sdk_share: ^1.2.1
   url_launcher: ^6.1.4
   flutter_html: ^2.2.1
   flutter_colorpicker: ^1.0.3
@@ -27,9 +26,11 @@ dependencies:
   http: ^0.13.4
   flutter_easyloading: ^3.0.5
   flutter_signin_button: ^2.0.0
-  google_sign_in: ^5.3.3
 
+  google_sign_in: ^5.3.3
   permission_handler: ^10.0.0
+
+  kakao_flutter_sdk: ^1.2.1 # 전체 추가
 
 dev_dependencies:
   flutter_lints: ^2.0.0

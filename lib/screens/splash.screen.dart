@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freecomponent/screens/mainScreen.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:freecomponent/constants/colors.constants.dart';
@@ -37,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       Future.delayed(const Duration(milliseconds: 1000), () {
         FirebaseAuth.instance.currentUser != null
-            ? Get.offAll(() => const crawlingScreen())
+            ? Get.offAll(() => const mainScreen())
             : Get.offAll(() => const LoginScreen());
       });
     }
@@ -54,13 +55,9 @@ class _SplashScreenState extends State<SplashScreen> {
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image.asset(
-                //   "assets/images/logo.png",
-                //   width: Get.size.width / 3,
-                // ),
-                const SizedBox(height: 20),
-                const Text(
+              children: const [
+                SizedBox(height: 20),
+                Text(
                   "테스트",
                   style: TextStyle(fontSize: 28, color: AppColors.primary),
                 )

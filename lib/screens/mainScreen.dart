@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freecomponent/constants/colors.constants.dart';
 import 'package:freecomponent/controller/HomeController.dart';
-import 'package:freecomponent/screens/test.screen.dart';
+import 'package:freecomponent/screens/freeComponent_viewpage.dart';
 import 'package:get/get.dart';
 
 import '../controller/NavigationController.dart';
@@ -25,23 +25,8 @@ class mainScreenState extends State<mainScreen> {
     Get.put(NavigationController());
     Get.put(HomeController());
     final navigationController = Get.find<NavigationController>();
-
+    print(navigationController.currentBottomMenuIndex);
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(
-      //   selectedItemColor: AppColors.primary,
-      //   unselectedItemColor: AppColors.grey,
-      //   currentIndex: navigationController.currentBottomMenuIndex.value,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.ac_unit),
-      //       label: "크롤링 테스트"
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.account_box),
-      //       label: "next Page"
-      //     )
-      //   ],
-      // ),
       bottomNavigationBar: Obx(
               () => Offstage(
                 offstage:HomeController.to.hideBottomMenu.value,
@@ -54,16 +39,34 @@ class mainScreenState extends State<mainScreen> {
                       selectedLabelStyle: const TextStyle(color: Colors.red),
                       selectedItemColor: AppColors.primary,
                       unselectedItemColor: AppColors.grey,
-                      items: const [
+                      items: [
                         BottomNavigationBarItem(
-                          icon: Icon(Icons.ac_unit),
-                          label: "크롤링페이지",
+                          icon: Image.asset(
+                            "assets/images/bottom-menu-my.png",
+                            height: 30,
+                            color:
+                            navigationController.currentBottomMenuIndex.value == 0
+                                ? AppColors.primary
+                                : AppColors.grey,
+                          ),
+                          label: "firebases데이터 테스트",
                         ),
                         BottomNavigationBarItem(
-                          icon: Icon(Icons.abc_rounded),
-                          label: "firebases데이터 테스트"
+                            icon: Image.asset(
+                              "assets/images/bottom-menu-my.png",
+                              height: 30,
+                              color:
+                              navigationController.currentBottomMenuIndex.value == 1
+                                  ? AppColors.primary
+                                  : AppColors.grey,
+                            ),
+                          label: "크롤링페이지"
                         )
-                      ]
+                      ],
+                      onTap: (index) {
+                        navigationController.currentBottomMenuIndex.value = index;
+                        setState(() {});
+                      },
                     )
                   ],
                 ),
@@ -73,7 +76,7 @@ class mainScreenState extends State<mainScreen> {
           () => IndexedStack(
             index: navigationController.currentBottomMenuIndex.value,
             children: const[
-              testScreen(),
+              freeComponent_viewpage(),
               crawlingScreen(),
             ],
           )

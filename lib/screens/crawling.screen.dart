@@ -8,6 +8,7 @@ import 'package:freecomponent/models/crawlling.model.dart';
 import 'package:html/parser.dart' as parser;
 import 'package:url_launcher/url_launcher.dart';
 import '../constants/colors.constants.dart';
+import '../constants/common.constants.dart';
 
 //ver 2
 Future<List<crawliingModel>> getCraData() async {
@@ -186,8 +187,7 @@ class _crawlingScreenState extends State<crawlingScreen> {
                                             children: [
                                               IconButton(
                                                 iconSize: 80,
-                                                onPressed: (){
-                                                },
+                                                onPressed: (){},
                                                 icon:
                                                 Text("일정 : ${snapshot.data![index].imgStatus[2]}"),
                                               ),
@@ -198,7 +198,7 @@ class _crawlingScreenState extends State<crawlingScreen> {
                                                   Uri url = Uri.parse(snapshot.data![index].imgLinkA);
                                                   launchUrl(url);
                                                 },
-                                                icon: Text(snapshot.data![index].imgStatus.last, style: TextStyle(fontWeight: FontWeight.bold),),
+                                                icon: Text(snapshot.data![index].imgStatus.last, style: const TextStyle(fontWeight: FontWeight.bold),),
                                               ),
                                             ],
                                           )
@@ -221,7 +221,8 @@ class _crawlingScreenState extends State<crawlingScreen> {
               )
             )
           ],
-        )
+        ),
+      // bottomNavigationBar: BOTTOM_NAVIGATOR,
       );
     }
   }

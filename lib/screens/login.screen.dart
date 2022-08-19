@@ -14,12 +14,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:freecomponent/constants/colors.constants.dart';
 import 'package:freecomponent/services/firebase.service.dart';
 import 'package:freecomponent/constants/common.constants.dart';
-// import 'package:naegot/screens/main.screen.dart';
 import 'package:freecomponent/screens/crawling.screen.dart';
 import 'package:freecomponent/services/user.service.dart';
 import 'package:freecomponent/util/logger.service.dart';
-import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-import 'package:kakao_flutter_sdk_share/kakao_flutter_sdk_share.dart';
+import 'package:freecomponent/models/main_view_model.dart';
+
+import '../services/kakao_login.dart';
 
 final googleSignIn = GoogleSignIn(
   scopes: ['email'],
@@ -32,7 +32,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
+  final viewModel = MainViewModel(KakaoLogin());
   void _get_user_info() async {
     try {
 
@@ -67,6 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Buttons.Google,
                       text: "구글 로그인",
                       onPressed: () async {
+                        print("clcke");
                         try {
                           // EasyLoading.show(status: "로그인...");
                           final account = await googleSignIn.signIn();
@@ -87,12 +88,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             accessToken: auth.accessToken,
                             idToken: auth.idToken,
                           );
+
                           // controller.oAuthCredential.value = credential;
                           final user = await FirebaseAuth.instance
                               .signInWithCredential(credential);
                           if (user.user == null) {
                             throw "handleGoogleLogin signInWithCredential errror";
                           }
+                          print("222");
 
                           var currentUser = await FirebaseService.findUserByEmail(
                               user.user!.email!);
@@ -128,33 +131,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: MediaQuery.of(context).size.width - 165,
                         child: CupertinoButton(
                           onPressed: () async {
-                            if(await isKakaoTalkInstalled()){
-                              print("true");
-                              try{
-                                await UserApi.instance.loginWithKakaoTalk();
-                                print("카카오톡 로그인 성공!!");
-                              }catch(error){
-                                print("카카오톡 로그인 실패 : $error");
-                              }
-                              try{
-                                // await UserApi.instance.loginWithKakaoAccount();
-                                print("카카오 계정으로 로그인 완료");
-                                _get_user_info();
-                              }catch(error){
-                                print("카카오 계정 로그인 실패 : $error");
-                              }
-                            }else{
-                              print("false");
-                              try{
-                                // AccessTokenInfo tokenInfo = await UserApi.instance.accessTokenInfo();
-                                await UserApi.instance.loginWithKakaoAccount();
-                               // await UserㅏApi.instance.loginWithKakaoTalk();
-                               // await UserApi.instance.loginWithKakaoAccount();
-                                print("카카오 계정으로 로그인 성공");
-                             } catch (error) {
-                               print("카카오 계정 로그인 실패....$error");
-                             }
-                            }
+                            await viewModel.login();
+                            setState(() {});
+                            EasyLoading.show(status: "카카오 로그인 성공...");
+                            Get.offAll(() => const crawlingScreen());
                           },
                           color: Colors.yellow,
                           padding: const EdgeInsets.all(10),

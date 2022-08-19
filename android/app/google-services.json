@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "712705257370",
+    "firebase_url": "https://freecomponent-default-rtdb.firebaseio.com",
     "project_id": "freecomponent",
     "storage_bucket": "freecomponent.appspot.com"
   },

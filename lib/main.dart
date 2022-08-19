@@ -8,7 +8,7 @@ import 'constants/common.constants.dart';
 import 'screens/splash.screen.dart';
 
 void main() async {
-    KakaoSdk.init(nativeAppKey:KAKAO_NATIVE_APP_KEY);
+    KakaoSdk.init(nativeAppKey:KAKAO_NATIVE_APP_KEY2);
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
     runApp(const MyApp());
